@@ -1,0 +1,2 @@
+-- Your SQL goes here
+ALTER TABLE website ADD COLUMN poll_time INT8 NOT NULL DEFAULT 3*1000*60;

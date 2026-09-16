@@ -1,0 +1,2 @@
+ALTER TABLE website
+DROP CONSTRAINT website_url_user_id_key;
