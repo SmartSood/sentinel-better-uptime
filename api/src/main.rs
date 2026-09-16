@@ -86,7 +86,12 @@ async fn main() -> Result<(), std::io::Error> {
         .at("/regions", get(routes::regions::get_all_regions))
         .data(s)
         .data(redis_conn)
-        .with(Cors::new());
+        .with(
+            Cors::new()
+                .allow_origin("https://sentinel.smarthsood.com")
+                .allow_methods(["GET", "POST", "OPTIONS"])
+                .allow_headers(["Authorization", "Content-Type"]),
+        );
 
     Server::new(poem::listener::TcpListener::bind("127.0.0.1:3001"))
         .name("hello-world")
